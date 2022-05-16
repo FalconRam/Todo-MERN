@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
 import AddTask from './Components/AddTask/AddTask'
+import GetAllTask from './Components/GetAllTask/GetAllTask';
 
 function App() {
   // eslint-disable-next-line
@@ -17,11 +18,12 @@ function App() {
   }, []);
 
   const addTask = newTask => {
-    setTodolist([...todolist,newTask])
+    setTodolist([newTask, ...todolist]);
   }
   return (
     <div>
       <AddTask addTask={addTask}></AddTask>
+      <GetAllTask todolist={todolist}></GetAllTask>
     </div>
   );
 }
